@@ -33,7 +33,6 @@ var loadTasks = function() {
 
   // loop over object properties
   $.each(tasks, function(list, arr) {
-    console.log(list, arr);
     // then loop over sub-array
     arr.forEach(function(task) {
       createTask(task.text, task.date, list);
@@ -81,6 +80,46 @@ $("#task-form-modal .btn-primary").click(function() {
     saveTasks();
   }
 });
+
+    // task text was clicked
+    $(".list-group").on("click", "p", function() {
+      //get current text of p element
+      var text = $(this)
+        .text()
+        .trim();
+
+      // replace p element with a new textare
+      var textInput = $("<textarea>")
+      .addClass("form-control")
+      .val(text);
+
+    $(this).replaceWith(textInput);
+
+    // auto focus the new element
+    textInput.trigger("focus");
+});
+
+  //editable field was unfocused
+  $(".list-group").on("blur", "textarea", function() {
+  // get the textarea's current value/tex
+  var text = $(this)
+    .val()
+
+    // get the parent Ul's id attribute
+    var status = $(this)
+    .closest(".list-group")
+    .attr("id")
+    .replace("list-", "");
+
+    //get the task's position in the list of other li elements
+    var index = $(this)
+    .closest(".list-group-item")
+    .index();
+
+    //update task in array and re-save to localStorage
+    tasks[status][index].text = text;
+    saveTasks();
+  });
 
 // remove all tasks
 $("#remove-tasks").on("click", function() {
