@@ -286,6 +286,9 @@ $("#task-form-modal .btn-primary").click(function() {
 
       // replace input with span element
       $(this).replaceWith(taskSpan);
+
+      // pass task's <li> element into auditTask() to check new due date
+      auditTask($(taskSpan).closest(".list-group-item"));
     });
       
 
