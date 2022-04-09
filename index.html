@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Staatliches&display=swap" rel="stylesheet">    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Taskmaster Pro</title>
   </head>
@@ -25,9 +26,11 @@
           data-toggle="modal"
           data-target="#task-form-modal"
         >
+        <span class="oi oi-plus"></span>
           Add Task
         </button>
         <button id="remove-tasks" class="btn btn-block btn-danger">
+          <span class="oi oi-trash"></span>
           Delete All Tasks
         </button>
         <p class="mt-auto d-done d-lg-block">
@@ -78,6 +81,7 @@
         </div>
         <div id="trash" class="mt-auto">
           <div class="w-100 bg-danger p-3 text-center text-light display-4">
+            <span class="oi oi-trash"></span>
             Drop Here to Remove.
           </div>
         </div>
